@@ -1,10 +1,10 @@
  # CIP-B104-CS1-C11-26-DFIT-17300
 
     ## NIST SP 800-86 Digital Forensic Investigation Report
-    **Student:** Simon Friday Adeka 
-    **Reg No:** C11/26/DFIT/17300
-    **Course:** CIP-B104 Case Studies in Digital Forensics 
-    **Date:** 26 August 2026
+    Student: Simon Friday Adeka 
+    Reg No: C11/26/DFIT/17300
+    Course: CIP-B104 Case Studies in Digital Forensics 
+    Date: 26 August 2026
 
     ### Case Summary
     Investigation of digital evidence related to allegations of unauthorized computer access. 
