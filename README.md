@@ -35,7 +35,6 @@ CIP-B104-CS1-C11-26-DFIT-17300/
     ├── 09_MrEvil_NetStumblerFile_Screenshot.png
     └── 10_Final_Attribution_Screenshot.jpg
 
-
 ### 4. Examination & Analysis
 
 #### 4.1 Hash Verification [Checkpoint 1]
