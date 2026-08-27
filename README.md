@@ -21,19 +21,6 @@ The file size was 0 bytes and could not be mounted directly.
 ### 3. Repository Structure
 This repository covers all 11 NIST checkpoints from `01_Case_Prep` to `08_Timeline_Report`.
 
-CIP-B104-CS1-C11-26-DFIT-17300/
-├── 01_HashVerification_Screenshot.jpg
-├── 02_Autopsy_Imager_Screenshot.jpg
-├── 03_fls_SCHARD_001_Screenshot.png
-├── 04_fsstat_SCHARD_001_Screenshot.png
-├── 02_Disk_Exam/
-│   ├── 05_HackingTools_Registry_Screenshot.png
-│   ├── 06_SAMReg_Software_Strings_Screenshot.png
-│   ├── 07_SAMReg_Strings_Screenshot.png
-│   └── 08_SoftwareReg_Strings_Screenshot.png
-└── 08_Timeline_Report/
-    ├── 09_MrEvil_NetStumblerFile_Screenshot.png
-    └── 10_Final_Attribution_Screenshot.jpg
 
 ### 4. Examination & Analysis
 
@@ -56,14 +43,14 @@ Analysis of the SOFTWARE registry hive identified the following tools installed:
 **Evidence**: `05_HackingTools_Registry_Screenshot.png`
 
 #### 4.5 File Recovery & Attribution [Checkpoint 9]
-File carving recovered `mr.evil@www.netstumbler[2].txt`. This file directly associates the user account "Mr Evil" with wireless network scanning activities using NetStumbler.
+File carving recovered `mr.evil@www.netstumbler[2].txt`. This file directly associates the user account "Mr Evil" with wireless network scanning activities using NetStumbler.  
 **Evidence**: `09_MrEvil_NetStumblerFile_Screenshot.png`
 
 #### 4.6 Registry Analysis [Checkpoint 6-8]
 Analysis of SYSTEM, SAM, and SOFTWARE hives using `strings`:
 - `ComputerName` entries confirmed in SYSTEM hive
 - `Administrator` account confirmed in SAM hive
-- Hacking tools confirmed in SOFTWARE hive
+- Hacking tools confirmed in SOFTWARE hive  
 **Evidence**: `06_SAMReg_Software_Strings_Screenshot.png`, `07_SAMReg_Strings_Screenshot.png`, `08_SoftwareReg_Strings_Screenshot.png`
 
 ### 5. Attribution Matrix
@@ -78,7 +65,7 @@ Analysis of SYSTEM, SAM, and SOFTWARE hives using `strings`:
 ### 6. Conclusion [Checkpoint 10-11]
 Based on the forensic examination of digital evidence `SCHARDT.001`, it is my professional opinion that the system associated with this case was used to conduct unauthorized network reconnaissance and password cracking activities.
 
-Forensic analysis identified the presence of Cain & Abel v2.5 and NetStumbler software on the system. Furthermore, the recovery of a file named `mr.evil@www.netstumbler.txt` provides direct attribution of wireless network scanning activity to the user account "Mr Evil". 
+Forensic analysis identified the presence of Cain & Abel v2.5 and NetStumbler software on the system. Furthermore, the recovery of a file named `mr.evil@www.netstumbler.txt` provides direct attribution of wireless network scanning activity to the user account "Mr Evil".
 
 The system context and case naming indicate association with Greg Schardt. Given the totality of evidence, it is concluded that the "Mr Evil" user account was responsible for the malicious activities identified on this system.
 
