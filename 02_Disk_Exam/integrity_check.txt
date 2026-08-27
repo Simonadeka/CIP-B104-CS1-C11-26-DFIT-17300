@@ -1,7 +1,0 @@
-       File: SCHARD T.001
-    MD5: 28a9b613d6eefe8a0515ef0a675bdebd
-    SHA1: 4553c87b818518f9dfe13add1dbc334edd7b31b9
-    Verification: PASSED
-
-    Note: simon_usb.dd failed verification - 0 bytes, hash mismatch.
-    Issue documented per NIST SP 800-86.
