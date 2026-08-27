@@ -1,0 +1,21 @@
+    Command: fsstat -o 63 /home/simon/Cases/CIP-B104-CS1-C11_26_DFIT_17300/01_Original/SCHARD T.001
+    
+    FILE SYSTEM INFORMATION
+    File System Type: NTFS
+    Volume Serial Number: B26CB1CE6CB18D9B
+    OEM Name: NTFS
+    Version: Windows XP
+
+    METADATA INFORMATION
+    First Cluster of MFT: 2097152
+    First Cluster of MFT Mirror: 4755208
+    Size of MFT Entries: 1024 bytes
+    Size of Index Records: 4096 bytes
+    Range: 0 - 12305
+    Root Directory: 5
+
+    CONTENT INFORMATION
+    Sector Size: 512
+    Cluster Size: 512
+    Total Cluster Range: 0 - 9510415
+    Total Sector Range: 0 - 9510415
