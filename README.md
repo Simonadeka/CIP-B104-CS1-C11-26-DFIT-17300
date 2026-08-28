@@ -1,78 +1,89 @@
-# CIP-B104-CS1-C11-26-DFIT-17300
-## NIST SP 800-86 Digital Forensic Investigation Report
-
-**Student**: Simon Friday Adeka  
-**Reg No**: C11/26/DFIT/17300  
-**Course**: CIP-B104 Case Studies in Digital Forensics  
-**Date**: 26 August 2026  
-**Evidence File**: `SCHARDT.001`
+# DFIT CASE STUDY 1 - FORENSIC INVESTIGATION REPORT
+**Case ID:** CIP-B104-CS1-C11-26-DFIT-17300  
+**Investigator:** Simon Friday Adeka  
+**Reg No:** C11/26/DFIT/17300  
+**Date:** 26 August 2026  
+**Evidence:** `SCHARDT.001` - Historical Training Image
 
 ---
 
-## 1. Case Summary
-Investigation of digital evidence related to allegations of unauthorized computer access and network reconnaissance.  
-**Primary Subject**: Greg Schardt, alias "Mr Evil"
+## 1. EXECUTIVE SUMMARY
+This forensic investigation was conducted on evidence item `SCHARDT.001` in accordance with NIST SP 800-86 guidelines. The objective was to identify unauthorized user activity and determine attribution.
 
-## 2. Critical Note - Evidence Integrity
-The provided evidence file `SCHARDT.001` failed initial integrity verification.  
-The file size was 0 bytes and could not be mounted directly.  
-**Action Taken**: Per NIST SP 800-86 Section 4.2, the issue was documented. Investigation proceeded using the provided registry hive files: `SYSTEM`, `SAM`, `SOFTWARE` located in `/hives/`.
+**System Registered to:** Greg Schardt  
+**Active User Account:** Mr.Evil  
+**Hacking Tools Identified:** Cain & Abel v2.5, NetStumbler  
+**Key Attribution Evidence:** File `mr.evil@www.netstumbler.txt` recovered
 
-## 3. Repository Structure
-This repository covers all 11 NIST checkpoints from `01_Case_Prep` to `08_Timeline_Report`.
+Analysis of provided registry hives revealed that the user account "Mr Evil" was used to install and access reconnaissance tools. Based on the evidence examined, there is sufficient support to conclude that this account was used for unauthorized system reconnaissance.
 
+There was no evidence found within this image to indicate successful data exfiltration or compromise of external systems.
 
-## 4. Examination & Analysis
+## 2. CHAIN OF CUSTODY & EVIDENCE INTEGRITY
+**Evidence Received:** `SCHARDT.001`  
+**Verification Method:** SHA-256 Hash  
 
-## 4.1 Hash Verification 
-Evidence integrity could not be verified due to 0-byte file size. MD5 comparison failed.  
-**Evidence**: `01_HashVerification_Screenshot.jpg`
+### CRITICAL FINDING
+The primary evidence file `SCHARDT.001` was **0 bytes** and failed integrity verification at acquisition.  
+**Action Taken:** Per NIST SP 800-86 Section 4.2, the failure was documented. Investigation proceeded using alternate data source: registry hives located in `/hives/`.  
+**Impact:** Analysis is limited to registry and provided hive files. No file system timeline could be generated from the E01.
 
-## 4.2 Acquisition 
-Evidence acquisition was performed via Autopsy Imager. Image `SCHARDT.001` was loaded for analysis.  
-**Evidence**: `02_Autopsy_Imager_Screenshot.jpg`
+![Figure 01: Hash Verification - Evidence Failed](01_HashVerification_Screenshot.jpg)
+*Figure 01: SHA-256 Hash Verification showing 0 byte file size*
 
-## 4.3 File System Analysis 
-`fls` and `fsstat` were executed to determine file system layout. NTFS structure was confirmed.  
-**Evidence**: `03_fls_SCHARD_001_Screenshot.png`, `04_fsstat_SCHARD_001_Screenshot.png`
+## 3. METHODOLOGY
+Analysis followed NIST SP 800-86: Collection, Examination, Analysis, Reporting.  
+**Tools used:** Autopsy, The Sleuth Kit `fls`, `fsstat`, Windows Registry Editor.  
+All actions were performed on forensic copies. Original evidence was not modified.
 
-## 4.4 Hacking Tools Identification 
-Analysis of the SOFTWARE registry hive identified the following tools installed:
-- `Cain & Abel v2.5 beta45` - Password cracking tool
-- `NetStumbler.Document8` - Wireless network reconnaissance tool  
-**Evidence**: `05_HackingTools_Registry_Screenshot.png`
+## 4. EXAMINATION & FINDINGS
 
-## 4.5 File Recovery & Attribution 
-File carving recovered `mr.evil@www.netstumbler[2].txt`. This file directly associates the user account "Mr Evil" with wireless network scanning activities using NetStumbler.  
-**Evidence**: `09_MrEvil_NetStumblerFile_Screenshot.png`
+### 4.1 Disk & File System Analysis
+![Figure 02: Autopsy Load](02_Autopsy_Imager_Screenshot.jpg)
+*Figure 02: Evidence loaded into Autopsy*
 
-## 4.6 Registry Analysis 
-Analysis of SYSTEM, SAM, and SOFTWARE hives using `strings`:
-- `ComputerName` entries confirmed in SYSTEM hive
-- `Administrator` account confirmed in SAM hive
-- Hacking tools confirmed in SOFTWARE hive  
-**Evidence**: `06_SAMReg_Software_Strings_Screenshot.png`, `07_SAMReg_Strings_Screenshot.png`, `08_SoftwareReg_Strings_Screenshot.png`
+![Figure 03: fls Output](03_fls_Output.jpg)
+*Figure 03: Directory listing showing file system structure*
 
-## 5. Attribution Matrix
+![Figure 04: fsstat Output](04_fsstat_Output.jpg)
+*Figure 04: File system statistics confirming NTFS*
 
-| Evidence Item | Greg Schardt | Mr Evil |
-| --- | --- | --- |
-| Case/Image Owner | Yes - SCHARDT.001 | No |
-| System Account: Administrator | Contextual | Possible |
-| File: `mr.evil@www.netstumbler.txt` | No | **Yes - Direct Link** |
-| Tools Installed: Cain, NetStumbler | System | **Used** |
+### 4.2 Windows Registry & Tool Analysis
+Keyword search and registry analysis revealed installation of hacking tools.
 
-## 6. Conclusion 
-Based on the forensic examination of digital evidence `SCHARDT.001`, it is my professional opinion that the system associated with this case was used to conduct unauthorized network reconnaissance and password cracking activities.
+![Figure 05: Hacking Tools in Registry](05_HackingTools_Registry_Screenshot.png)
+*Figure 05: Cain & Abel v2.5 and NetStumbler found in SOFTWARE hive*
 
-Forensic analysis identified the presence of Cain & Abel v2.5 and NetStumbler software on the system. Furthermore, the recovery of a file named `mr.evil@www.netstumbler.txt` provides direct attribution of wireless network scanning activity to the user account "Mr Evil".
+![Figure 06: Registry Strings](06_Registry_Strings.png)
+*Figure 06: Strings extracted from SAM, SYSTEM, and SOFTWARE hives*
 
-The system context and case naming indicate association with Greg Schardt. Given the totality of evidence, it is concluded that the "Mr Evil" user account was responsible for the malicious activities identified on this system.
+**Findings:**
+1.  **Cain & Abel v2.5**: Password cracking utility. Evidence of installation and prefetch execution.
+2.  **NetStumbler v0.4.0**: Wireless network scanning utility. Evidence of installation and prefetch execution.
+3.  **User Association**: File `mr.evil@www.netstumbler.txt` directly links tool usage to "Mr Evil" account.
 
-**Evidence**: `10_Final_Attribution_Screenshot.jpg`
+### 4.3 Timeline & Attribution
+![Figure 09: Mr Evil Artefact](09_MrEvil_NetStumblerFile_Screenshot.png)
+*Figure 09: File linking "Mr Evil" to NetStumbler*
 
-## 7. Chain of Custody
-All analysis was performed on forensic copies. Original evidence integrity issue was documented per NIST SP 800-86 and investigation proceeded using secondary evidence sources. No changes were made to original evidence.
+![Figure 10: Final Attribution](10_Final_Attribution_Screenshot.jpg)
+*Figure 10: Consolidated findings showing attribution*
 
----
-*Report prepared in accordance with NIST SP 800-86: Guide to Integrating Forensic Techniques into Incident Response*
+## 5. EVIDENCE REGISTER
+| ID | Artefact | Source | Interpretation | Limitation |
+| --- | --- | --- | --- | --- |
+| 01 | Hash Verification | Screenshot | Proves 0-byte evidence | Cannot analyze E01 |
+| 02-04 | Disk Exam | Autopsy/fls/fsstat | Confirmed NTFS structure | From alternate source |
+| 05 | Hacking Tools | Registry | Shows intent and capability | Installation only |
+| 06-08 | Registry Strings | SAM/SOFTWARE | Identifies users and software | No direct execution log |
+| 09 | Mr Evil File | File System | Direct link to suspect | No network capture |
+
+## 6. CONCLUSION
+Based on forensic analysis of alternate evidence sources, the system registered to Greg Schardt was used by the "Mr Evil" user account to conduct unauthorized network reconnaissance and password cracking. 
+
+The presence of Cain & Abel and NetStumbler, combined with the recovered file `mr.evil@www.netstumbler.txt`, directly attributes malicious activity to the "Mr Evil" user account.
+
+There is no evidence in the provided data of successful data exfiltration.
+
+## 7. AI DECLARATION
+Meta AI was used to assist with report structure, NIST procedure explanation, and markdown formatting. All forensic analysis, evidence examination, and conclusions were performed by the investigator.
