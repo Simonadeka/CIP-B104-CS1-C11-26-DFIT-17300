@@ -39,22 +39,22 @@ All actions were performed on forensic copies. Original evidence was not modifie
 ## 4. EXAMINATION & FINDINGS
 
 ### 4.1 Disk & File System Analysis
-![Figure 02: Autopsy Load](../02_Autopsy_Imager_Screenshot.jpg)
+![Figure 02: Autopsy Load](../02_Disk_Exam/02_Autopsy_Imager_Screenshot.jpg)
 *Figure 02: Evidence loaded into Autopsy*
 
-![Figure 03: fls Output](../03_fls_Output.jpg)
+![Figure 03: fls Output](../02_Disk_Exam/03_fls_Output.jpg)
 *Figure 03: Directory listing showing file system structure*
 
-![Figure 04: fsstat Output](../04_fsstat_Output.jpg)
+![Figure 04: fsstat Output](../02_Disk_Exam/04_fsstat_Output.jpg)
 *Figure 04: File system statistics confirming NTFS*
 
 ### 4.2 Windows Registry & Tool Analysis
 Keyword search and registry analysis revealed installation of hacking tools.
 
-![Figure 05: Hacking Tools in Registry](../05_HackingTools_Registry_Screenshot.png)
+![Figure 05: Hacking Tools in Registry](../02_Disk_Exam/05_HackingTools_Found_Screen...png)
 *Figure 05: Cain & Abel v2.5 and NetStumbler found in SOFTWARE hive*
 
-![Figure 06: Registry Strings](../06_Registry_Strings.png)
+![Figure 06: Registry Strings](../02_Disk_Exam/08_SAMReg_Strings.png)
 *Figure 06: Strings extracted from SAM, SYSTEM, and SOFTWARE hives*
 
 **Findings:**
@@ -63,10 +63,10 @@ Keyword search and registry analysis revealed installation of hacking tools.
 3.  **User Association**: File `mr.evil@www.netstumbler.txt` directly links tool usage to "Mr Evil" account.
 
 ### 4.3 Timeline & Attribution
-![Figure 09: Mr Evil Artefact](../09_MrEvil_NetStumblerFile_Screenshot.png)
+![Figure 09: Mr Evil Artefact](../02_Disk_Exam/09_SoftwareReg_Strings.png)
 *Figure 09: File linking "Mr Evil" to NetStumbler*
 
-![Figure 10: Final Attribution](../10_Final_Attribution_Screenshot.jpg)
+![Figure 10: Final Attribution](../02_Disk_Exam/08_Timeline_Reportfinal_summ...)
 *Figure 10: Consolidated findings showing attribution*
 
 ## 5. EVIDENCE REGISTER
