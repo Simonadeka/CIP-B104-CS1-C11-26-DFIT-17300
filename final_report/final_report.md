@@ -39,7 +39,7 @@ All actions were performed on forensic copies. Original evidence was not modifie
 ## 4. EXAMINATION & FINDINGS
 
 ### 4.1 Disk & File System Analysis
-![Figure 02: Autopsy Load](../02_Disk_Exam/02_Autopsy_Imager_Screenshot.jpg)
+![Figure 02: Autopsy Load](../02_Disk_Examint_egrity_check_screenshot.jpg)
 *Figure 02: Evidence loaded into Autopsy*
 
 ![Figure 03: fls Output](../02_Disk_Exam/03_fls_Output.jpg)
