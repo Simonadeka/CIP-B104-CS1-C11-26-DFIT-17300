@@ -22,7 +22,7 @@ There was no evidence found within this image to indicate successful data exfilt
 ## 2. CHAIN OF CUSTODY & EVIDENCE INTEGRITY
 **Evidence Received:** `SCHARDT.001`  
 **Verification Method:** SHA-256 Hash  
-![Figure 01: Hash Verification](../02_Disk_Exam/01HashVerification_Screenshot.png)
+![Figure 01: Hash Verification](../02_Disk_Exam/01_HashVerification_Screenshot.png.png)
 ### CRITICAL FINDING
 The primary evidence file `SCHARDT.001` was **0 bytes** and failed integrity verification at acquisition.  
 **Action Taken:** Per NIST SP 800-86 Section 4.2, the failure was documented. Investigation proceeded using alternate data source: registry hives located in `/hives/`.  
